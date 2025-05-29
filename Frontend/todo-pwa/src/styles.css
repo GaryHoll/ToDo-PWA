@@ -1,0 +1,152 @@
+/* Global styles and theme configuration */
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+/* Theme Variables
+ * Each theme defines its own color palette with:
+ * - Primary colors (main, dark, light variants)
+ * - Text colors (main text, UI text, input text)
+ * - Background and surface colors
+ * - Border and error colors
+ */
+
+:root {
+  /* Default green theme */
+  --primary-color: #1B5E20;
+  --primary-dark: #0A3D0A;
+  --primary-light: #2E7D32;
+  --text-color: #FFFFFF;
+  --ui-text-color: #333333;
+  --background-color: #1A1A1A;
+  --surface-color: #C8E6C9;
+  --border-color: #A5D6A7;
+  --error-color: #b71c1c;
+  --input-text-color: #333333;
+}
+
+/* Theme Variations */
+body.red-theme {
+  --primary-color: #b71c1c;
+  --primary-dark: #7f0000;
+  --primary-light: #c62828;
+  --text-color: #FFFFFF;
+  --ui-text-color: #333333;
+  --background-color: #1A1A1A;
+  --surface-color: #FFCDD2;
+  --border-color: #EF9A9A;
+  --error-color: #7f0000;
+  --input-text-color: #333333;
+}
+
+body.yellow-theme {
+  --primary-color: #E65100;
+  --primary-dark: #BF360C;
+  --primary-light: #F57C00;
+  --text-color: #FFFFFF;
+  --ui-text-color: #333333;
+  --background-color: #1A1A1A;
+  --surface-color: #FFECB3;
+  --border-color: #FFE082;
+  --error-color: #f44336;
+  --input-text-color: #333333;
+}
+
+body.blue-theme {
+  --primary-color: #0D47A1;
+  --primary-dark: #002171;
+  --primary-light: #1565C0;
+  --text-color: #FFFFFF;
+  --ui-text-color: #333333;
+  --background-color: #1A1A1A;
+  --surface-color: #BBDEFB;
+  --border-color: #90CAF9;
+  --error-color: #f44336;
+  --input-text-color: #333333;
+}
+
+body.dark-theme {
+  --primary-color: #2E7D32;
+  --primary-dark: #1B5E20;
+  --primary-light: #4CAF50;
+  --text-color: #E0E0E0;
+  --background-color: #121212;
+  --surface-color: #2D2D2D;
+  --border-color: #404040;
+  --error-color: #CF6679;
+}
+
+/* Dark theme combinations */
+body.dark-theme.red-theme {
+  --primary-color: #B71C1C;
+  --primary-dark: #7F0000;
+  --primary-light: #C62828;
+  --surface-color: #2D2D2D;
+  --border-color: #404040;
+}
+
+body.dark-theme.yellow-theme {
+  --primary-color: #E65100;
+  --primary-dark: #BF360C;
+  --primary-light: #F57C00;
+  --surface-color: #2D2D2D;
+  --border-color: #404040;
+}
+
+body.dark-theme.blue-theme {
+  --primary-color: #0D47A1;
+  --primary-dark: #002171;
+  --primary-light: #1565C0;
+  --surface-color: #2D2D2D;
+  --border-color: #404040;
+}
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Form Elements */
+button {
+  font-family: inherit;
+}
+
+input, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  color: var(--input-text-color);
+}
+
+input::placeholder {
+  color: #9E9E9E;
+}
+
+/* UI Components */
+header, footer, app-sidebar {
+  color: var(--ui-text-color);
+}
+
+header h1, 
+header button,
+footer p,
+footer a,
+app-sidebar button {
+  color: var(--ui-text-color);
+}
+
+/* Login Form Styles */
+.login-form input {
+  color: #FFFFFF !important;
+}
+
+.login-form input::placeholder {
+  color: #9E9E9E;
+}

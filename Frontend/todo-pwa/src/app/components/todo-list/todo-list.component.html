@@ -1,0 +1,33 @@
+<div *ngIf="selectedListId; else noList">
+  <h3>Todos for this list</h3>
+  <app-progress-indicator
+    [completed]="completedCount"
+    [total]="totalCount"
+  ></app-progress-indicator>
+  <form (ngSubmit)="addTodo()" class="add-todo-form">
+    <input
+      type="text"
+      [(ngModel)]="newTodoText"
+      name="newTodo"
+      placeholder="Add a new todo"
+      [disabled]="!selectedListId"
+      required
+    />
+    <button type="submit" [disabled]="!newTodoText.trim() || !selectedListId" title="Add todo">
+      <span class="material-icons">add</span>
+    </button>
+  </form>
+  <ul>
+    <li *ngFor="let todo of filteredTodos">
+      <input type="checkbox" [checked]="todo.completed" (change)="toggleCompletion(todo)" />
+      <span [class.completed]="todo.completed">{{ todo.text }}</span>
+      <button (click)="deleteTodo(todo.id)" title="Delete todo">
+        <span class="material-icons">delete</span>
+      </button>
+    </li>
+  </ul>
+  <div *ngIf="filteredTodos.length === 0">No todos for this list.</div>
+</div>
+<ng-template #noList>
+  <div>Please select a list to view its todos.</div>
+</ng-template>

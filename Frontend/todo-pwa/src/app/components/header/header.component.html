@@ -1,0 +1,35 @@
+<header class="header">
+  <div class="header-left">
+    <button class="menu-button" (click)="onMenuClick()" aria-label="Toggle menu" title="Toggle Sidebar Menu">
+      <span class="material-icons">menu</span>
+    </button>
+    <h1 class="app-title">Todo PWA</h1>
+  </div>
+  <div class="header-right">
+    <div class="login-section" *ngIf="!isLoggedIn">
+      <input 
+        type="email" 
+        [(ngModel)]="loginData.email" 
+        placeholder="Email"
+        class="login-input"
+        title="Enter your email address"
+      >
+      <input 
+        type="password" 
+        [(ngModel)]="loginData.password" 
+        placeholder="Password"
+        class="login-input"
+        title="Enter your password"
+      >
+      <button class="login-button" (click)="onLogin()" aria-label="Login" title="Click to login">
+        <span class="material-icons">login</span>
+      </button>
+    </div>
+    <button *ngIf="isLoggedIn" class="login-button" (click)="onLogout()" aria-label="Logout" title="Click to logout">
+      <span class="material-icons">logout</span>
+    </button>
+    <button class="theme-button" (click)="toggleTheme()" aria-label="Toggle theme" title="Toggle Dark/Light Theme">
+      <span class="material-icons">{{ isDarkTheme ? 'light_mode' : 'dark_mode' }}</span>
+    </button>
+  </div>
+</header>

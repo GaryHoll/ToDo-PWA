@@ -1,0 +1,41 @@
+<div class="sidebar-overlay" *ngIf="isOpen" (click)="onClose()"></div>
+<div class="sidebar" [class.open]="isOpen">
+  <div class="sidebar-header">
+    <h2>My Lists</h2>
+    <button class="close-button" (click)="onClose()" title="Close sidebar">
+      <span class="material-icons">close</span>
+    </button>
+  </div>
+
+  <div class="add-list">
+    <input 
+      type="text" 
+      [(ngModel)]="newListName" 
+      placeholder="New list name"
+      (keyup.enter)="onAddList()"
+      title="Enter new list name"
+    >
+    <button (click)="onAddList()" title="Add new list">
+      <span class="material-icons">add</span>
+    </button>
+  </div>
+
+  <div class="lists">
+    <div 
+      *ngFor="let list of todoLists" 
+      class="list-item"
+      [class.selected]="list.id === selectedListId"
+      (click)="onListSelect(list.id)"
+      [title]="'Select ' + list.name"
+    >
+      <span class="list-name">{{ list.name }}</span>
+      <button 
+        class="delete-button" 
+        (click)="onDeleteList(list.id, $event)"
+        title="Delete list"
+      >
+        <span class="material-icons">delete</span>
+      </button>
+    </div>
+  </div>
+</div>
